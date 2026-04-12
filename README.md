@@ -1,6 +1,6 @@
 # Responsive Landing Page Website
 
-This is a responsive landing page website built using HTML, CSS, and JavaScript.
+This is a responsive landing page website built using Next.js and Tailwind CSS.
 
 ## Features
 - Responsive design
