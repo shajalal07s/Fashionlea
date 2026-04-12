@@ -2,39 +2,19 @@ import Image from "next/image";
 
 const Categories = () => {
   const categories = [
-    { name: "Soap", image: "https://placehold.co/120x120/png?text=Soap" },
-    {
-      name: "Skin Care",
-      image: "https://placehold.co/120x120/png?text=Skin+Care",
-    },
-    { name: "Nail", image: "https://placehold.co/120x120/png?text=Nail" },
-    {
-      name: "Moisturizer",
-      image: "https://placehold.co/120x120/png?text=Moisturizer",
-    },
-    { name: "Makeup", image: "https://placehold.co/120x120/png?text=Makeup" },
-    {
-      name: "Liquid Lipstick",
-      image: "https://placehold.co/120x120/png?text=Liquid+Lipstick",
-    },
-    {
-      name: "Lipstick",
-      image: "https://placehold.co/120x120/png?text=Lipstick",
-    },
-    {
-      name: "Lip Gloss",
-      image: "https://placehold.co/120x120/png?text=Lip+Gloss",
-    },
-    { name: "Lip", image: "https://placehold.co/120x120/png?text=Lip" },
-    {
-      name: "Home Care",
-      image: "https://placehold.co/120x120/png?text=Home+Care",
-    },
-    {
-      name: "Face Care",
-      image: "https://placehold.co/120x120/png?text=Face+Care",
-    },
-    { name: "Face", image: "https://placehold.co/120x120/png?text=Face" },
+    { name: "Soap", image: "/All Image/download-7.jpeg" },
+    { name: "Skin Care", image: "/All Image/essentials_beauty-skincare-clinic_skincare-300x300.jpg" },
+    { name: "Nail", image: "/All Image/download-5.jpeg" },
+    { name: "Moisturizer", image: "/All Image/images-7.jpeg" },
+    { name: "Makeup", image: "/All Image/download-7.jpeg" },
+    { name: "Liquid Lipstick", image: "/All Image/essentials_beauty-skincare-clinic_skincare-300x300.jpg" },
+    { name: "Lipstick", image: "/All Image/download-5.jpeg" },
+    { name: "Lip Gloss", image: "/All Image/images-7.jpeg" },
+    { name: "Lip", image: "/All Image/download-7.jpeg" },
+    { name: "Home Care", image: "/All Image/essentials_beauty-skincare-clinic_skincare-300x300.jpg" },
+    { name: "Face Care", image: "/All Image/download-5.jpeg" },
+    { name: "Lip Gloss", image: "/All Image/images-7.jpeg" },
+
   ];
 
   return (
@@ -42,21 +22,22 @@ const Categories = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-xl font-bold mb-6 text-gray-800">Top Categories</h2>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar scroll-smooth">
+        <div className="flex gap-4 pb-4 no-scrollbar">
           {categories.map((category, index) => (
             <div
               key={index}
-              className="flex-shrink-0 flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center group cursor-pointer"
             >
-              <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] relative rounded-[2rem] overflow-hidden bg-gray-100 transition-transform hover:scale-105 active:scale-95 shadow-sm border border-gray-100">
+              <div className="w-32 h-32 md:w-24 md:h-24 relative rounded-4xl overflow-hidden bg-gray-100 transition-transform hover:scale-105 active:scale-95 shadow-md">
                 <Image
                   src={category.image}
                   alt={category.name}
                   fill
                   className="object-cover"
+                  sizes="120px"
                 />
               </div>
-              <p className="mt-3 text-[12px] md:text-[13px] font-bold text-gray-700 text-center leading-tight">
+              <p className="mt-2 text-xs md:text-sm font-semibold text-gray-700 text-center">
                 {category.name}
               </p>
             </div>
