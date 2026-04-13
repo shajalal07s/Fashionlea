@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import TopBrands from "@/components/TopBrands";
+import ProductSection from "@/components/VideoSection";
+import ShopByBrand from "@/components/ShopByBrand";
 import ProductsSection from "@/components/ProductsSection";
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
       <Hero />
       <Categories />
       <TopBrands />
+      <ProductSection />
+      <ShopByBrand />
       <ProductsSection />
     </div>
   );

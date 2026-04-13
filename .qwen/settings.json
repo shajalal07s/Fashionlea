@@ -6,7 +6,9 @@
       "Bash(findstr *)",
       "Bash(taskkill *)",
       "Bash(npm install)",
-      "Bash(xcopy *)"
+      "Bash(xcopy *)",
+      "Bash(mkdir *)",
+      "Bash(copy *)"
     ]
   },
   "$version": 3
