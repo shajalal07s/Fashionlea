@@ -12,8 +12,8 @@ export default function Home() {
       <Categories />
       <TopBrands />
       <ProductSection />
-      <ShopByBrand />
       <ProductsSection />
+      <ShopByBrand />
     </div>
   );
 }

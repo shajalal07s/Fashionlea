@@ -16,8 +16,8 @@ const Navbar = () => {
 
   return (
     <nav className="bg-red-600 text-white w-full">
-      <div className="container mx-auto px-4 flex items-center justify-between h-10">
-        <div className="flex items-center space-x-6 text-xs font-bold tracking-wide h-full">
+      <div className="container mx-auto px-4 flex items-center justify-between h-11">
+        <div className="flex items-center space-x-6 text-sm font-bold tracking-wide h-full">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -31,13 +31,13 @@ const Navbar = () => {
           ))}
         </div>
         
-        <div className="flex items-center space-x-6 text-xs font-bold">
+        <div className="flex items-center space-x-6 text-sm font-bold">
           <Link href="/signin" className="flex items-center space-x-1 hover:text-gray-200">
             <User size={18} />
             <span>Sign in</span>
           </Link>
-          <Link href="/cart" className="flex items-center space-x-1 hover:text-gray-200 relative">
-            <ShoppingCart size={18} />
+          <Link href="/dashboard" className="flex items-center space-x-1 hover:text-gray-200">
+            <ShoppingCart size={20} />
             <span className="bg-white text-red-600 rounded-full w-4 h-4 flex items-center justify-center text-[10px] absolute -top-1 -right-2 border border-red-600">
               0
             </span>

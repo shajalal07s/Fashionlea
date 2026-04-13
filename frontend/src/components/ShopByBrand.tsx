@@ -16,7 +16,7 @@ const brands = [
 const ShopByBrand = () => {
   return (
     <section className="w-full bg-gray-100 py-8">
-      <div className="container mx-auto px-4 lg:px-16">
+      <div className="mx-auto px-4 lg:px-16">
         {/* Section Title */}
         <h2 className="text-2xl font-bold font-railway text-gray-800 mb-5">
           Shop by Brand
@@ -29,7 +29,7 @@ const ShopByBrand = () => {
               key={brand.id}
               className="bg-white flex items-center justify-center p-4 cursor-pointer hover:opacity-80 transition-opacity"
             >
-              <div className="relative w-[135px] h-[135px]">
+              <div className="relative w-[140px] h-32 p-2.5">
                 <Image
                   src={brand.image}
                   alt={brand.name}

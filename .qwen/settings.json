@@ -8,7 +8,9 @@
       "Bash(npm install)",
       "Bash(xcopy *)",
       "Bash(mkdir *)",
-      "Bash(copy *)"
+      "Bash(copy *)",
+      "Bash(rmdir *)",
+      "Bash(dir *)"
     ]
   },
   "$version": 3
