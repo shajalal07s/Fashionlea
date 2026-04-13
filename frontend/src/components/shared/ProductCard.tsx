@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface ProductCardProps {
+export interface SharedProductCardProps {
+  id: number;
   image: string;
   title: string;
   price: string;
-  productId: number;
+  priceNumeric: number;
 }
 
-const ProductCard = ({ image, title, price, productId }: ProductCardProps) => {
+const SharedProductCard = ({ id, image, title, price }: SharedProductCardProps) => {
   return (
-    <Link href={`/product/${productId}`} className="bg-white p-1 flex flex-col gap-2.5 overflow-hidden group">
+    <Link href={`/product/${id}`} className="bg-white p-1 flex flex-col gap-2.5 overflow-hidden group">
       {/* Product Image */}
       <div className="relative w-full h-60 overflow-hidden">
         <Image
@@ -35,4 +36,4 @@ const ProductCard = ({ image, title, price, productId }: ProductCardProps) => {
   );
 };
 
-export default ProductCard;
+export default SharedProductCard;

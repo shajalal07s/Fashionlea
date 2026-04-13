@@ -2,13 +2,13 @@
 
 import { useMemo } from "react";
 
-interface PaginationProps {
+export interface SharedPaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+const SharedPagination = ({ currentPage, totalPages, onPageChange }: SharedPaginationProps) => {
   const pages = useMemo(() => {
     const result: (number | string)[] = [];
 
@@ -65,4 +65,4 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
   );
 };
 
-export default Pagination;
+export default SharedPagination;
