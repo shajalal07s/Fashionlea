@@ -1,6 +1,21 @@
 import ShopLayout from "@/components/shared/ShopLayout";
-import type { FilterableProduct } from "@/components/shared";
+import { HOMECARE_PRODUCTS, HOMECARE_CATEGORIES, HOMECARE_STATUSES } from "@/data/homecareProducts";
 
+export default function HomeCarePage() {
+  return (
+    <ShopLayout
+      pageTitle="Home Care"
+      pageSubtitle="Essential home care and cleaning products."
+      products={HOMECARE_PRODUCTS}
+      categories={HOMECARE_CATEGORIES}
+      statuses={HOMECARE_STATUSES}
+      itemsPerPage={8}
+      showSidebar={true}
+    />
+  );
+}
+
+/**
 const homeCareProducts: FilterableProduct[] = [
   { id: 501, image: "/All Image/Shop Image/Lemon-Group-Static-800x800-1-600x600.webp", title: "All-Purpose Cleaner – Lemon Fresh, 1L", price: "₹299.00", priceNumeric: 299, category: "Cleaner", status: "In stock" },
   { id: 502, image: "/All Image/Shop Image/Aloe-1-800x800-1-600x600.webp", title: "Laundry Detergent – Floral Scent, 2kg", price: "₹450.00", priceNumeric: 450, category: "Laundry", status: "In stock" },
@@ -14,15 +29,4 @@ const homeCareProducts: FilterableProduct[] = [
   { id: 510, image: "/All Image/Shop Image/Lemon-Group-Static-800x800-1-600x600.webp", title: "Hand Wash – Antibacterial, 500ml", price: "₹299.00", priceNumeric: 299, category: "Hand Wash", status: "In stock" },
 ];
 
-export default function HomeCarePage() {
-  const categories = Array.from(new Set(homeCareProducts.map((p) => p.category)));
-
-  return (
-    <ShopLayout
-      pageTitle="Home Care"
-      pageSubtitle="Keep your home sparkling clean with our range."
-      products={homeCareProducts}
-      categories={categories}
-    />
-  );
-}
+*/

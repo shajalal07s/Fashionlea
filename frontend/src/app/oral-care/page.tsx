@@ -1,6 +1,21 @@
 import ShopLayout from "@/components/shared/ShopLayout";
-import type { FilterableProduct } from "@/components/shared";
+import { ORALCARE_PRODUCTS, ORALCARE_CATEGORIES, ORALCARE_STATUSES } from "@/data/oralcareProducts";
 
+export default function OralCarePage() {
+  return (
+    <ShopLayout
+      pageTitle="Oral Care"
+      pageSubtitle="Complete oral care solutions for healthy teeth and gums."
+      products={ORALCARE_PRODUCTS}
+      categories={ORALCARE_CATEGORIES}
+      statuses={ORALCARE_STATUSES}
+      itemsPerPage={8}
+      showSidebar={true}
+    />
+  );
+}
+
+/**
 const oralCareProducts: FilterableProduct[] = [
   { id: 401, image: "/All Image/Shop Image/Lemon-01-800x800-1-600x600.webp", title: "Whitening Toothpaste – Activated Charcoal, 120g", price: "₹299.00", priceNumeric: 299, category: "Toothpaste", status: "In stock" },
   { id: 402, image: "/All Image/Shop Image/Lime-fresh-2-1-800x800-1-600x600.png", title: "Electric Toothbrush – Sonic Clean, USB Rechargeable", price: "₹1,499.00", priceNumeric: 1499, category: "Toothbrush", status: "In stock" },
@@ -14,15 +29,4 @@ const oralCareProducts: FilterableProduct[] = [
   { id: 410, image: "/All Image/Shop Image/Lime-fresh-2-1-800x800-1-600x600.png", title: "Water Flosser – Portable Cordless", price: "₹2,499.00", priceNumeric: 2499, category: "Water Flosser", status: "In stock" },
 ];
 
-export default function OralCarePage() {
-  const categories = Array.from(new Set(oralCareProducts.map((p) => p.category)));
-
-  return (
-    <ShopLayout
-      pageTitle="Oral Care"
-      pageSubtitle="Complete oral hygiene solutions for a bright smile."
-      products={oralCareProducts}
-      categories={categories}
-    />
-  );
-}
+*/

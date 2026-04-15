@@ -1,6 +1,21 @@
 import ShopLayout from "@/components/shared/ShopLayout";
-import type { FilterableProduct } from "@/components/shared";
+import { HAIRCARE_PRODUCTS, HAIRCARE_CATEGORIES, HAIRCARE_STATUSES } from "@/data/haircareProducts";
 
+export default function HairCarePage() {
+  return (
+    <ShopLayout
+      pageTitle="Hair Care"
+      pageSubtitle="Organic and premium hair care products for all hair types."
+      products={HAIRCARE_PRODUCTS}
+      categories={HAIRCARE_CATEGORIES}
+      statuses={HAIRCARE_STATUSES}
+      itemsPerPage={8}
+      showSidebar={true}
+    />
+  );
+}
+
+/**
 const hairCareProducts: FilterableProduct[] = [
   { id: 301, image: "/All Image/Shop Image/Aloe-4-600x600.jpg", title: "Keratin Shampoo – Repair & Strengthen, 500ml", price: "₹599.00", priceNumeric: 599, category: "Shampoo", status: "In stock" },
   { id: 302, image: "/All Image/Shop Image/Aloe-1-800x800-1-600x600.webp", title: "Argan Oil Conditioner – Deep Nourishment, 400ml", price: "₹499.00", priceNumeric: 499, category: "Conditioner", status: "In stock" },
@@ -16,15 +31,4 @@ const hairCareProducts: FilterableProduct[] = [
   { id: 312, image: "/All Image/Shop Image/Lime-fresh-2-1-800x800-1-600x600.png", title: "Heat Protectant Spray – 230°C Protection, 200ml", price: "₹450.00", priceNumeric: 450, category: "Heat Protectant", status: "On sale" },
 ];
 
-export default function HairCarePage() {
-  const categories = Array.from(new Set(hairCareProducts.map((p) => p.category)));
-
-  return (
-    <ShopLayout
-      pageTitle="Hair Care"
-      pageSubtitle="Nourish and style your hair with premium products."
-      products={hairCareProducts}
-      categories={categories}
-    />
-  );
-}
+*/

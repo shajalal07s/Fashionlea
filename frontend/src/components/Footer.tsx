@@ -6,18 +6,19 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="lg:px-16 md:px-5 sm:px-5 mx-auto py-12 md:py-16">
+      <div className="lg:px-16 px-5 mx-auto py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
           {/* Column 1 - Brand Info */}
           <div className="lg:col-span-1">
             {/* Logo Image */}
             <div className="mb-4">
               <Image
-                src="/components./Fashionlea-logo-black-background-2.png"
+                src="/Fashionlea-logo-black-background-2.png"
                 alt="Fashionlea Logo"
-                width={140}
-                height={45}
+                width={160}
+                height={50}
                 className="h-10 w-auto"
+                priority
               />
             </div>
 
@@ -29,8 +30,8 @@ const Footer = () => {
             {/* Description */}
             <p className="text-gray-300 text-sm leading-relaxed mb-5">
               ফ্যাশনলি অনলাইন শপে পাচ্ছেন ফ্যাশন ও বিউটি রিলেটেড সকল পণ্য। এবং
-              সারা বাংলাদেশে ডেলিভারি। ২৪/৭ কাস্টমার সার্ভিস আমরা দিচ্ছি।
-              যেকোনো সমস্যা সমাধিনে আমাদের কাস্টমার সাপোর্টে যোগাযোগ করুন।
+              সারা বাংলাদেশে ডেলিভারি। ২৪/৭ কাস্টমার সার্ভিস আমরা দিচ্ছি। যেকোনো
+              সমস্যা সমাধিনে আমাদের কাস্টমার সাপোর্টে যোগাযোগ করুন।
             </p>
 
             {/* Facebook Button */}

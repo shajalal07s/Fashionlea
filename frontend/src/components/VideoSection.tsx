@@ -1,4 +1,9 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { ShoppingCart, Check } from "lucide-react";
+import { useCart } from "@/hooks/useCart";
+import { useCartContext } from "@/context/CartContext";
 
 const niorProducts = [
   {
@@ -8,7 +13,7 @@ const niorProducts = [
     oldPrice: "950৳",
     newPrice: "618৳",
     discount: "-35%",
-    image: "/All Image/nior-sunscreen.png",
+    image: "/All Image/glorin-logo-square-300x300-1.png",
   },
   {
     id: 2,
@@ -17,7 +22,7 @@ const niorProducts = [
     oldPrice: "550৳",
     newPrice: "413৳",
     discount: "-25%",
-    image: "/All Image/nior-lipstick.png",
+    image: "/All Image/nior-logo-300x300-1.png",
   },
   {
     id: 3,
@@ -26,7 +31,7 @@ const niorProducts = [
     oldPrice: "950৳",
     newPrice: "950৳",
     discount: null,
-    image: "/All Image/nior-liner.png",
+    image: "/All Image/lily-essentials-logo-300x300-1.png",
   },
   {
     id: 4,
@@ -35,7 +40,7 @@ const niorProducts = [
     oldPrice: "1,000৳",
     newPrice: "1,000৳",
     discount: null,
-    image: "/All Image/nior-powder.png",
+    image: "/All Image/essentials_beauty-skincare-clinic_skincare-300x300.jpg",
   },
   {
     id: 5,
@@ -44,7 +49,7 @@ const niorProducts = [
     oldPrice: "550৳",
     newPrice: "440৳",
     discount: "-20%",
-    image: "/All Image/nior-lipgloss.png",
+    image: "/All Image/herlan-logo-300x300-1.png",
   },
   {
     id: 6,
@@ -53,12 +58,40 @@ const niorProducts = [
     oldPrice: "500৳",
     newPrice: "325৳",
     discount: "-35%",
-    image: "/All Image/nior-cream.png",
+    image: "/All Image/nior-logo-300x300-1.png",
   },
 ];
 
-const ProductCard = ({ product }: { product: (typeof niorProducts)[0] }) => (
-  <div className="bg-[#f3f3f3] p-3 flex flex-col h-full">
+const ProductCard = ({ product }: { product: (typeof niorProducts)[0] }) => {
+  const { addToCart } = useCart();
+  const { openCart } = useCartContext();
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Extract numeric price
+    const priceNumeric = parseInt(product.newPrice.replace(/[^\d]/g, ""), 10);
+
+    // Add item to cart
+    const success = addToCart({
+      id: product.id,
+      name: product.title,
+      image: product.image,
+      price: product.newPrice,
+      priceNumeric,
+    });
+
+    if (success) {
+      setIsAdded(true);
+      setTimeout(() => setIsAdded(false), 2000);
+      openCart();
+    }
+  };
+
+  return (
+  <div className="bg-white p-1 flex flex-col h-full overflow-hidden">
     <div className="relative">
       {/* Discount Badge */}
       {product.discount && (
@@ -68,13 +101,11 @@ const ProductCard = ({ product }: { product: (typeof niorProducts)[0] }) => (
       )}
 
       {/* Product Image */}
-      <div className="relative w-full h-40 flex items-center justify-center mb-3 bg-white">
-        <Image
+      <div className="w-full h-52 flex items-center justify-center mb-3 bg-white overflow-hidden">
+        <img
           src={product.image}
           alt={product.title}
-          fill
-          className="object-contain"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+          className="object-cover w-full h-full"
         />
       </div>
     </div>
@@ -98,11 +129,29 @@ const ProductCard = ({ product }: { product: (typeof niorProducts)[0] }) => (
     </div>
 
     {/* Add to Cart Button */}
-    <button className="py-1.5 px-4 text-xs font-medium text-gray-700 border border-gray-300 rounded-full hover:bg-black hover:text-white transition-colors w-fit">
-      ADD TO CART
+    <button
+      onClick={handleAddToCart}
+      className={`py-1.5 px-4 text-xs font-medium rounded-full transition-all duration-300 flex items-center gap-1.5 w-fit ${
+        isAdded
+          ? "bg-green-600 text-white border-green-600"
+          : "text-gray-700 border border-gray-300 hover:bg-black hover:text-white hover:border-black"
+      }`}
+    >
+      {isAdded ? (
+        <>
+          <Check size={14} />
+          Added!
+        </>
+      ) : (
+        <>
+          <ShoppingCart size={14} />
+          ADD TO CART
+        </>
+      )}
     </button>
   </div>
-);
+  );
+};
 
 /* ============================================
    VIDEO SECTION START

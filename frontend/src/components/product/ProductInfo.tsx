@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Product } from "./productData";
 import { Check, ShoppingCart, ShoppingBag, MessageCircle } from "lucide-react";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { generateMessengerLink } from "@/lib/messenger";
 
 interface ProductInfoProps {
   product: Product;
@@ -33,12 +35,19 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     handleAddToCart();
   };
 
-  const whatsappMessage = encodeURIComponent(
-    `I want to order this product: ${product.name} - ${product.priceDisplay}`
-  );
-  const whatsappUrl = `https://wa.me/8801773667594?text=${whatsappMessage}`;
+  // Generate dynamic WhatsApp message with product details
+  const whatsappUrl = generateWhatsAppLink({
+    productName: product.name,
+    quantity: quantity,
+    price: product.price,
+    category: product.category,
+    productUrl: typeof window !== "undefined" ? window.location.href : "",
+  });
 
-  const messengerUrl = "https://m.me/YOUR_PAGE_USERNAME";
+  // Generate dynamic Messenger message
+  const messengerUrl = generateMessengerLink({
+    productName: product.name,
+  });
 
   return (
     <div className="flex flex-col">

@@ -307,10 +307,14 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
             </div>
 
             {/* Checkout Button */}
-            <button className="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-xl text-sm font-bold transition-colors flex items-center justify-center gap-2">
+            <Link
+              href="/checkout"
+              onClick={onClose}
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-xl text-sm font-bold transition-colors flex items-center justify-center gap-2"
+            >
               <ShoppingBag size={18} />
               Checkout — ৳{total.toLocaleString()}
-            </button>
+            </Link>
 
             {/* Continue Shopping */}
             <button
